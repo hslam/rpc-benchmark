@@ -17,6 +17,7 @@ func init() {
 	flag.StringVar(&addr, "addr", ":9999", "-addr=:9999")
 	flag.Parse()
 }
+
 func main() {
 	rpc.Register(new(service.Arith))
 	lis, err := net.Listen(network, addr)

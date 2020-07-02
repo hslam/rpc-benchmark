@@ -16,6 +16,7 @@ func init() {
 	flag.StringVar(&codec, "codec", "pb", "-codec=code")
 	flag.Parse()
 }
+
 func main() {
 	rpc.Register(new(service.Arith))
 	rpc.Listen(network, addr, codec)
