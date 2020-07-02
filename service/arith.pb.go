@@ -5,7 +5,7 @@ package service
 
 import (
 	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
+	proto "github.com/gogo/protobuf/proto"
 	io "io"
 	math "math"
 	math_bits "math/bits"
@@ -20,14 +20,11 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type ArithRequest struct {
-	A                    int32    `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"`
-	B                    int32    `protobuf:"varint,2,opt,name=b,proto3" json:"b,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	A int32 `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"`
+	B int32 `protobuf:"varint,2,opt,name=b,proto3" json:"b,omitempty"`
 }
 
 func (m *ArithRequest) Reset()         { *m = ArithRequest{} }
@@ -78,10 +75,7 @@ func (m *ArithRequest) GetB() int32 {
 }
 
 type ArithResponse struct {
-	Pro                  int32    `protobuf:"varint,1,opt,name=pro,proto3" json:"pro,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Pro int32 `protobuf:"varint,1,opt,name=pro,proto3" json:"pro,omitempty"`
 }
 
 func (m *ArithResponse) Reset()         { *m = ArithResponse{} }
@@ -132,15 +126,16 @@ func init() {
 func init() { proto.RegisterFile("arith.proto", fileDescriptor_211289c5d02710c5) }
 
 var fileDescriptor_211289c5d02710c5 = []byte{
-	// 128 bytes of a gzipped FileDescriptorProto
+	// 137 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4e, 0x2c, 0xca, 0x2c,
 	0xc9, 0xd0, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e,
 	0x55, 0xd2, 0xe2, 0xe2, 0x71, 0x04, 0x89, 0x07, 0xa5, 0x16, 0x96, 0xa6, 0x16, 0x97, 0x08, 0xf1,
 	0x70, 0x31, 0x26, 0x4a, 0x30, 0x2a, 0x30, 0x6a, 0xb0, 0x06, 0x31, 0x26, 0x82, 0x78, 0x49, 0x12,
 	0x4c, 0x10, 0x5e, 0x92, 0x92, 0x22, 0x17, 0x2f, 0x54, 0x6d, 0x71, 0x41, 0x7e, 0x5e, 0x71, 0xaa,
-	0x90, 0x00, 0x17, 0x73, 0x41, 0x51, 0x3e, 0x54, 0x39, 0x88, 0xe9, 0x24, 0x70, 0xe2, 0x91, 0x1c,
-	0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0xce, 0x78, 0x2c, 0xc7, 0x90, 0xc4, 0x06,
-	0xb6, 0xd0, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x89, 0xcd, 0x52, 0xf6, 0x7f, 0x00, 0x00, 0x00,
+	0x90, 0x00, 0x17, 0x73, 0x41, 0x51, 0x3e, 0x54, 0x39, 0x88, 0xe9, 0x24, 0x71, 0xe2, 0x91, 0x1c,
+	0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0x4e, 0x78, 0x2c, 0xc7, 0x70, 0xe1, 0xb1,
+	0x1c, 0xc3, 0x8d, 0xc7, 0x72, 0x0c, 0x49, 0x6c, 0x60, 0x8b, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff,
+	0xff, 0x40, 0x2a, 0x4e, 0x91, 0x87, 0x00, 0x00, 0x00,
 }
 
 func (m *ArithRequest) Marshal() (dAtA []byte, err error) {
@@ -163,10 +158,6 @@ func (m *ArithRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.B != 0 {
 		i = encodeVarintArith(dAtA, i, uint64(m.B))
 		i--
@@ -200,10 +191,6 @@ func (m *ArithResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Pro != 0 {
 		i = encodeVarintArith(dAtA, i, uint64(m.Pro))
 		i--
@@ -235,9 +222,6 @@ func (m *ArithRequest) Size() (n int) {
 	if m.B != 0 {
 		n += 1 + sovArith(uint64(m.B))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -249,9 +233,6 @@ func (m *ArithResponse) Size() (n int) {
 	_ = l
 	if m.Pro != 0 {
 		n += 1 + sovArith(uint64(m.Pro))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -344,7 +325,6 @@ func (m *ArithRequest) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -417,7 +397,6 @@ func (m *ArithResponse) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
