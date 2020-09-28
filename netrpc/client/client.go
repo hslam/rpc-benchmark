@@ -12,6 +12,7 @@ import (
 
 var network string
 var addr string
+var codec string
 var clients int
 var total int
 var parallel int
@@ -20,6 +21,7 @@ var bar bool
 func init() {
 	flag.StringVar(&network, "network", "tcp", "-network=tcp")
 	flag.StringVar(&addr, "addr", ":9999", "-addr=:9999")
+	flag.StringVar(&codec, "codec", "pb", "-codec=code")
 	flag.IntVar(&total, "total", 100000, "-total=100000")
 	flag.IntVar(&parallel, "parallel", 1, "-parallel=1")
 	flag.IntVar(&clients, "clients", 1, "-clients=1")
