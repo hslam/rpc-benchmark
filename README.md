@@ -10,7 +10,7 @@
 |Auto Batching|No|No|Yes|No|No|
 |Client|Yes|Yes|Yes|Yes|Yes|
 |Transport|No|No|Yes|No|No|
-|Websocket|No|No|Yes|No|No|
+|Server Push|No|No|Yes|Yes|Yes|
 
 ##### Low Concurrency
 
